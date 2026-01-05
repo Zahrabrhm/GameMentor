@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameMentor - AI-Powered Personalized Game Tutorials</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎮 GameMentor</h1>
+            <p class="subtitle">AI-Powered Personalized Game Tutorials</p>
+            <p class="paper-link">
+                Based on the IEEE CIG 2024 paper: 
+                <a href="https://ieeexplore.ieee.org/document/10613541" target="_blank">
+                    "GameMentor: Customized Tutorial for Video Games"
+                </a>
+            </p>
+        </header>
+
+        <nav class="tabs">
+            <button class="tab-btn active" data-tab="overview">Overview</button>
+            <button class="tab-btn" data-tab="lunar-lander">🚀 Lunar Lander</button>
+            <button class="tab-btn" data-tab="super-mario">🍄 Super Mario</button>
+            <button class="tab-btn" data-tab="how-it-works">How It Works</button>
+        </nav>
+
+        <main>
+            <section id="overview" class="tab-content active">
+                <div class="hero">
+                    <h2>Personalized Learning for Better Gaming</h2>
+                    <p>
+                        GameMentor uses deep reinforcement learning to create customized tutorials 
+                        that adapt to YOUR skill level and mistakes. Instead of one-size-fits-all 
+                        tutorials, GameMentor identifies where you struggle and provides targeted practice.
+                    </p>
+                </div>
+
+                <div class="features">
+                    <div class="feature-card">
+                        <div class="feature-icon">🎯</div>
+                        <h3>Mistake Detection</h3>
+                        <p>AI analyzes your gameplay to identify critical moments where you made suboptimal decisions.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📚</div>
+                        <h3>Personalized Tutorials</h3>
+                        <p>Watch the AI demonstrate the correct approach at the exact moments where you struggled.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🏋️</div>
+                        <h3>Targeted Practice</h3>
+                        <p>Practice specific scenarios until you master them, with immediate feedback.</p>
+                    </div>
+                </div>
+
+                <div class="cta-section">
+                    <h3>Try the Games Below!</h3>
+                    <p>Select a game from the tabs above to experience the GameMentor system.</p>
+                </div>
+            </section>
+
+            <section id="lunar-lander" class="tab-content">
+                <h2>🚀 Lunar Lander Demo</h2>
+                <div class="game-container">
+                    <div class="game-info">
+                        <h3>About the Game</h3>
+                        <p>Land the spacecraft safely on the landing pad. Use thrusters to control your descent.</p>
+                        <h4>Controls:</h4>
+                        <ul>
+                            <li><kbd>↑</kbd> - Fire main engine</li>
+                            <li><kbd>←</kbd> - Fire left thruster</li>
+                            <li><kbd>→</kbd> - Fire right thruster</li>
+                        </ul>
+                    </div>
+                    <div class="game-wrapper">
+                        <canvas id="lunar-canvas" width="600" height="400"></canvas>
+                        <div class="game-controls">
+                            <button id="ll-start" class="game-btn">Start Game</button>
+                            <button id="ll-tutorial" class="game-btn" disabled>Watch Tutorial</button>
+                            <button id="ll-practice" class="game-btn" disabled>Practice Mode</button>
+                        </div>
+                        <div class="game-stats">
+                            <span>Score: <span id="ll-score">0</span></span>
+                            <span>Mistakes: <span id="ll-mistakes">0</span></span>
+                            <span>Status: <span id="ll-status">Ready</span></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="explanation">
+                    <h3>How GameMentor Helps</h3>
+                    <p>
+                        After you play, GameMentor's AI agent (trained using Double Deep Q-Network) 
+                        analyzes your actions. At critical decision points, it compares your choices 
+                        to optimal actions and identifies mistakes.
+                    </p>
+                    <p>
+                        The tutorial mode replays your game up to a mistake point, then shows you 
+                        the correct approach. Practice mode lets you retry from that exact scenario.
+                    </p>
+                </div>
+            </section>
+
+            <section id="super-mario" class="tab-content">
+                <h2>🍄 Super Mario Demo</h2>
+                <div class="game-container">
+                    <div class="game-info">
+                        <h3>About the Game</h3>
+                        <p>Navigate Mario through obstacles and enemies to reach the flag.</p>
+                        <h4>Controls:</h4>
+                        <ul>
+                            <li><kbd>→</kbd> - Move right</li>
+                            <li><kbd>←</kbd> - Move left</li>
+                            <li><kbd>↑</kbd> or <kbd>Space</kbd> - Jump</li>
+                        </ul>
+                    </div>
+                    <div class="game-wrapper">
+                        <canvas id="mario-canvas" width="600" height="400"></canvas>
+                        <div class="game-controls">
+                            <button id="sm-start" class="game-btn">Start Game</button>
+                            <button id="sm-tutorial" class="game-btn" disabled>Watch Tutorial</button>
+                            <button id="sm-practice" class="game-btn" disabled>Practice Mode</button>
+                        </div>
+                        <div class="game-stats">
+                            <span>Position: <span id="sm-position">0</span></span>
+                            <span>Mistakes: <span id="sm-mistakes">0</span></span>
+                            <span>Status: <span id="sm-status">Ready</span></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="explanation">
+                    <h3>How GameMentor Helps</h3>
+                    <p>
+                        The Mario AI uses a Convolutional Neural Network (CNN) trained via Deep Q-Learning 
+                        on raw pixel inputs. It learns to navigate levels by processing visual information 
+                        similar to how humans see the game.
+                    </p>
+                    <p>
+                        GameMentor identifies critical moments - like jumps over pits or enemy encounters - 
+                        where your decision differed significantly from the optimal action.
+                    </p>
+                </div>
+            </section>
+
+            <section id="how-it-works" class="tab-content">
+                <h2>How GameMentor Works</h2>
+                
+                <div class="pipeline">
+                    <div class="pipeline-step">
+                        <div class="step-number">1</div>
+                        <h3>Train Expert AI</h3>
+                        <p>
+                            We train a Deep Reinforcement Learning agent to master the game. 
+                            For Lunar Lander, we use Double DQN. For Super Mario, we use CNN-based DQN.
+                        </p>
+                    </div>
+                    
+                    <div class="pipeline-step">
+                        <div class="step-number">2</div>
+                        <h3>Record Human Play</h3>
+                        <p>
+                            While you play, we record your actions and the game states. 
+                            Simultaneously, we query the AI for what it would do at each state.
+                        </p>
+                    </div>
+                    
+                    <div class="pipeline-step">
+                        <div class="step-number">3</div>
+                        <h3>Identify Mistakes</h3>
+                        <p>
+                            We compare human actions to AI recommendations. States with high 
+                            Q-value differences are "critical" - where mistakes matter most.
+                        </p>
+                    </div>
+                    
+                    <div class="pipeline-step">
+                        <div class="step-number">4</div>
+                        <h3>Generate Tutorial</h3>
+                        <p>
+                            The tutorial replays your game up to the mistake, then shows 
+                            the AI demonstrating the correct approach from that point.
+                        </p>
+                    </div>
+                    
+                    <div class="pipeline-step">
+                        <div class="step-number">5</div>
+                        <h3>Practice & Improve</h3>
+                        <p>
+                            Practice mode recreates the exact scenario where you struggled, 
+                            letting you retry until you master it.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="tech-details">
+                    <h3>Technical Details</h3>
+                    <div class="tech-grid">
+                        <div class="tech-card">
+                            <h4>Lunar Lander Agent</h4>
+                            <ul>
+                                <li>Algorithm: Double Deep Q-Network</li>
+                                <li>State: 8-dimensional vector</li>
+                                <li>Actions: 4 discrete</li>
+                                <li>Network: 3-layer MLP (128-64-4)</li>
+                            </ul>
+                        </div>
+                        <div class="tech-card">
+                            <h4>Super Mario Agent</h4>
+                            <ul>
+                                <li>Algorithm: DQN with CNN</li>
+                                <li>State: 84x84x4 grayscale frames</li>
+                                <li>Actions: 7 discrete</li>
+                                <li>Network: 3 Conv + 2 Dense layers</li>
+                            </ul>
+                        </div>
+                        <div class="tech-card">
+                            <h4>Mistake Detection</h4>
+                            <ul>
+                                <li>Q-value difference threshold</li>
+                                <li>Critical state identification</li>
+                                <li>Action comparison analysis</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>
+                <a href="https://github.com/Zahrabrhm/GameMentor" target="_blank">GitHub Repository</a> |
+                <a href="https://ieeexplore.ieee.org/document/10613541" target="_blank">IEEE Paper</a>
+            </p>
+            <p class="copyright">© 2024 GameMentor - IEEE CIG 2024</p>
+        </footer>
+    </div>
+
+    <script src="lunar-lander.js"></script>
+    <script src="super-mario.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

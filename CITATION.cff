@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite our paper."
+title: "GameMentor: AI-Driven Personalized Game Tutorials"
+type: software
+authors:
+  - family-names: "Author"
+    given-names: "GameMentor"
+repository-code: "https://github.com/Zahrabrhm/GameMentor"
+license: MIT
+preferred-citation:
+  type: conference-paper
+  authors:
+    - family-names: "Author"
+      given-names: "GameMentor"
+  title: "AI-Driven Personalized Game Tutorials Through Deep Reinforcement Learning"
+  conference:
+    name: "IEEE Conference on Games (CoG)"
+  year: 2024
+  doi: "10.1109/CoG60054.2024.10613541"
+  url: "https://ieeexplore.ieee.org/document/10613541"
